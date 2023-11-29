@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import Button from "./Button";
-import axios from "axios";
 import { Highlight, themes } from "prism-react-renderer";
-import { contactData, toastMessages } from "../assets/lib/data.tsx";
+import { contactData } from "../assets/lib/data.tsx";
 import { useSectionInView } from "../assets/lib/hooks";
 import { useLanguage } from "../context/language-context";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useTheme } from "../context/theme-context";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact: React.FC = () => {
-  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "";
 
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -22,7 +20,6 @@ const Contact: React.FC = () => {
   const { ref } = useSectionInView("Contact");
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const [error, setError] = useState<string | any>(null);
 
   const animationReference = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -32,31 +29,6 @@ const Contact: React.FC = () => {
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
-  const notifySentForm: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    setError(null);
-    console.log(error);
-
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-
-    try {
-      const response = await axios.post(apiBaseUrl, data);
-      console.log(response);
-      if (language === "ES") {
-        toast.success(toastMessages.successEmailSent.es);
-      } else {
-        toast.success(toastMessages.successEmailSent.en);
-      }
-    } catch (error) {
-      console.log(error);
-      if (language === "ES") {
-        toast.error(toastMessages.failedEmailSent.es);
-      } else {
-        toast.error(toastMessages.failedEmailSent.en);
-      }
-      setError("An Error occured, try again later");
-    }
-  };
 
   const handleInputFocus = (fieldName: string) => {
     setCursor(`${fieldName}${cursor}`);
@@ -224,7 +196,7 @@ ${name}${lastUpdatedField === "name" ? (cursorBlink ? "|" : " ") : ""}
           </div>
           <form
             className="flex flex-col gap-6 justify-center items-center  px-32 w-1/2 max-lg:w-full max-lg:p-10"
-            onSubmit={notifySentForm}
+            //onSubmit={notifySentForm}
             autoComplete="off"
           >
             {contactData.inputfields.map((input, index) => (

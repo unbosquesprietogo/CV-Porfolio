@@ -17,8 +17,6 @@
     "dotenv": "^16.3.1",
     "framer-motion": "^10.16.4",
     "gsap": "^3.12.2",
-    "install": "^0.13.0",
-    "npm": "^10.2.4",
     "or": "^0.2.0",
     "prism-react-renderer": "^2.0.6",
     "react": "^18.2.0",
@@ -33,6 +31,8 @@
     "web-vitals": "^3.5.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.10",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
