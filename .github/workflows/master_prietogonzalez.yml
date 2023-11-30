@@ -28,7 +28,7 @@ jobs:
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: zip release.zip ./dist/* -r 
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -59,4 +59,4 @@ jobs:
           app-name: 'prietogonzalez'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EC1D95A691CB48F9A30FE9449AA3413B }}
-          package: .
+          package: ./dist
