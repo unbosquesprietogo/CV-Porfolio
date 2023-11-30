@@ -5,6 +5,9 @@ import {
   skillsDataDesign,
   skillsDataBackend,
   skillsDataWeb,
+  skillsDataRepositories,
+  skillsDataBD,
+  skillsDataIDE,
 } from "../assets/lib/data";
 import { useTheme } from "../context/theme-context";
 import { useLanguage } from "../context/language-context";
@@ -45,7 +48,9 @@ const TechStack: React.FC = () => {
             }}
           >
             <p className="font-black mb-6">
-              <span className="text-[--orange]">&lt;</span>Skills
+              <span className="text-[--orange]">&lt;</span>{language === "ES"
+                ? "Habilidades"
+                : "Skills"}
               <span className="text-[--orange]">/&gt;</span>
             </p>
             <h2>
@@ -55,14 +60,22 @@ const TechStack: React.FC = () => {
             </h2>
           </motion.div>
         </div>
-        <div className="flex gap-40 justify-center max-lg:flex-col">
+        <div className="flex gap-10 justify-center max-lg:flex-col">
           <div className="w-1/3 max-lg:w-full">
-          <SkillSection skillsData={skillsDataBackend} theme={theme} />
-          </div>
-          <div className="flex flex-col h-[inherit]  justify-around max-lg:gap-40">
           <SkillSection skillsData={skillsDataWeb} theme={theme} />
           <br></br>
           <SkillSection skillsData={skillsDataDesign} theme={theme} />
+          <br></br>
+          <SkillSection skillsData={skillsDataIDE} theme={theme} />
+          
+          </div>
+          <div className="flex flex-col h-[inherit]  justify-around ">
+          <SkillSection skillsData={skillsDataBD} theme={theme} />
+          <br></br>
+          <SkillSection skillsData={skillsDataBackend} theme={theme} />
+        
+          <br></br>
+          <SkillSection skillsData={skillsDataRepositories} theme={theme} />
             
           </div>
         </div>

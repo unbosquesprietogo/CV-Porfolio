@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import RadialGradient from "./RadialGradient";
+import cvPdf from "../assets/pdf/cv.pdf";
 import { headerIntroData } from "../assets/lib/data";
 import { useSectionInView } from "../assets/lib/hooks";
 import { useActiveSectionContext } from "../context/active-section-context";
@@ -38,21 +39,41 @@ const HeaderIntro: React.FC = () => {
           : headerIntroData.description.en}
       </p>
 
-      <div className="button-container flex items-center justify-center mr-8 gap-10 mb-12 max-lg:flex-col max-lg:items-center">
+      <div className="button-container flex items-center justify-center mr-8 gap-10 mb-12 max-lg:flex-col max-lg:items-center max-lg:mb-4" style={{width:"80vw"}}>
         {headerIntroData.buttons.map((button, index) => (
           <Button
             key={index}
             label={language === "ES" ? button.label.es : button.label.en}
             iconSVG={button.icon}
-            link={`#${button.name.toLocaleLowerCase()}`}
+            link={button.link}
             buttoncolor={button.color}
             onClick={() => {
-              setActiveSection(button.name);
-              setTimeOfLastClick(Date.now());
+              if (button.link === "") {
+                setActiveSection(button.name);
+                setTimeOfLastClick(Date.now());
+              } else if (button.link === "downloadCV") {
+                var rutaArchivo = cvPdf;
+                var nombreArchivo = 'cvPrietoGonzalezSantiago.pdf';
+              
+                var enlaceTemporal = document.createElement('a');
+                enlaceTemporal.href = rutaArchivo;
+                enlaceTemporal.target = '_blank';
+                enlaceTemporal.download = nombreArchivo;
+              
+                document.body.appendChild(enlaceTemporal);
+              
+                enlaceTemporal.click();
+              
+                document.body.removeChild(enlaceTemporal);
+              } else {
+                window.location.href = button.link;
+              }
             }}
+            className="button-class-container"
           />
         ))}
       </div>
+
       <div className="scroll-down-container animate-bounce flex gap-6">
         <BsMouse className="text-[2.6rem]" />
       </div>

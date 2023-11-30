@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.button-class-container{
+  width: 100%; /* By default, take up the full width */
+}
+
+@media only screen and (max-width: 767px) {
+  .button-class-container {
+    width: 75vw; /* On mobile, set the width to 75% of the viewport width */
+  }
+}
 /* FONT IMPORTS */
 @font-face {
   font-family: "poppins-bold";
@@ -503,3 +512,6 @@ a {
   animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
   -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
 }
+
+
+  

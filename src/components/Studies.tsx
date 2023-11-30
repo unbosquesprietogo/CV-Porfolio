@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import me from "../assets/img/me.webp";
-import { aboutMeData } from "../assets/lib/data";
+import me from "../assets/img/me3.webp";
+import { studies } from "../assets/lib/data";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -10,10 +10,10 @@ import "swiper/css/navigation";
 import { useSectionInView } from "../assets/lib/hooks";
 import { useLanguage } from "../context/language-context";
 
-const AboutMe: React.FC = () => {
+const Studies: React.FC = () => {
   const progressCircle = useRef<SVGSVGElement | null>(null);
   const progressContent = useRef<HTMLSpanElement | null>(null);
-  const { ref } = useSectionInView("About me");
+  const { ref } = useSectionInView("Studies");
   const { language } = useLanguage();
   const animationReference = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -32,12 +32,13 @@ const AboutMe: React.FC = () => {
     }
   };
   const paragraphs =
-    language === "ES" ? aboutMeData.paragraphs_ES : aboutMeData.paragraphs_EN;
+    language === "ES" ? studies.paragraphs_ES : studies.paragraphs_EN;
 
   return (
     <React.Fragment>
-      <section className="about-me relative mt-16 " id="about-me" ref={ref}>
-        <div className="title-container flex flex-col gap-6 justify-center items-center p-32 w-1/2 max-lg:w-full max-lg:p-16 max-lg:items-start">
+      <section className="about-me relative mt-16 " id="studies" ref={ref}>
+
+        <div className= " title-container flex flex-col gap-6 justify-center items-center p-32 w-1/2 max-lg:w-full max-lg:p-16 max-lg:items-start">
           <motion.div
             ref={animationReference}
             style={{
@@ -48,21 +49,19 @@ const AboutMe: React.FC = () => {
           >
             <p className="text-[--black] mb-6">
               <span className="text-orange">&lt;</span>
-              {language === "ES" ? aboutMeData.title : aboutMeData.title_EN}
+              {language === "ES" ? studies.title : studies.title_EN}
               <span className="text-orange">/&gt;</span>
             </p>
 
-            <h2 className="text-[--black] text-center max-lg:text-left break-words">
+            <h2 className="text-[--black] right-0 text-center max-lg:text-right break-words">
               {language === "ES"
-                ? aboutMeData.description
-                : aboutMeData.description_EN}
+                ? studies.description
+                : studies.description_EN}
             </h2>
           </motion.div>
         </div>
         <div className="flex flex-row justify-center gap-6 items-center pl-32 pr-32 mb-16  max-lg:flex-col max-lg:p-16 min-[1921px]:px-[45rem] min-[1921px]:mb-48">
-          <article className="pl-60 max-lg:p-0">
-            <img src={me} alt={me} />
-          </article>
+          
           <Swiper
             spaceBetween={100}
             centeredSlides={true}
@@ -111,6 +110,11 @@ const AboutMe: React.FC = () => {
                     </p>
                   </div>
                   <div>
+                    <img 
+                      src={paragraph.image}
+                      alt={paragraph.image}
+                      style={{height:"32vh", marginBottom:"6vh"}}
+                    />
                     <p className="text-white text-4xl">
                       {paragraph.description}
                     </p>
@@ -119,7 +123,7 @@ const AboutMe: React.FC = () => {
               </SwiperSlide>
             ))}
             <div
-              className="autoplay-progress absolute right-0 bottom-0 z-10 flex items-center justify-center font-bold text-orange text-4xl w-24 h-24 max-lg:w-16 max-lg:h-16 max-lg:text-3xl "
+              className="autoplay-progress absolute left-0 bottom-0 z-10 flex items-center justify-center font-bold text-orange text-4xl w-24 h-24 max-lg:w-16 max-lg:h-16 max-lg:text-3xl "
               slot="container-end"
             >
               <svg viewBox="0 0 48 48" ref={progressCircle}>
@@ -128,10 +132,13 @@ const AboutMe: React.FC = () => {
               <span ref={progressContent}></span>
             </div>
           </Swiper>
+          <article className="pl-60 max-lg:p-0">
+            <img src={me} alt={me} />
+          </article>
         </div>
       </section>
     </React.Fragment>
   );
 };
 
-export default AboutMe;
+export default Studies;

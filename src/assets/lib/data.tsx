@@ -9,35 +9,46 @@ import reacticon from "../../assets/icons/reacticon.svg";
 import phpicon from "../../assets/icons/phpicon.svg";
 import nodejsicon from "../../assets/icons/nodejsicon.svg";
 import mysqlicon from "../../assets/icons/mysqlicon.svg";
-import mongodbicon from "../../assets/icons/mongoicon.svg";
-import jqueryicon from "../../assets/icons/jqueryicon.svg";
+import sqlservericon from "../../assets/icons/sqlservericon.svg";
 import cobolicon from "../../assets/icons/cobolicon.svg";
 import postgresqlicon from "../../assets/icons/postgresqlicon.svg";
 import intellijicon from "../../assets/icons/intellijicon.svg";
-import trelloicon from "../../assets/icons/trelloicon.svg";
-import apiicon from "../../assets/icons/apiicon.svg";
-import axiosicon from "../../assets/icons/axiosicon.svg";
-import spotifyicon from "../../assets/icons/spotifyicon.svg";
-import netlifyicon from "../../assets/icons/netlifyicon.svg";
-import rendericon from "../../assets/icons/rendericon.svg";
+import jspicon from "../../assets/icons/jspicon.svg";
+import amadeusicon from "../../assets/icons/amadeusicon.svg";
+import shellicon from "../../assets/icons/shellicon.svg";
+import unixicon from "../../assets/icons/unixicon.svg";
+import callcentericon from "../../assets/icons/callcentericon.svg";
+import svnicon from "../../assets/icons/svnicon.svg";
 import jwticon from "../../assets/icons/jwticon.svg";
 import oracleicon from "../../assets/icons/oracleicon.svg";
 import oracleapexicon from "../../assets/icons/oracleapexicon.svg";
 import pythonicon from "../../assets/icons/pythonicon.svg";
-import tastyMockup from "../../assets/img/tasty_mockup.webp";
+import comunicacionicon from "../../assets/icons/comunicacionicon.svg";
 import instorMockup from "../../assets/img/instor_mockup.webp";
-import silentmoonMockup from "../../assets/img/silentmoon_mockup.webp";
+import instorMockup2 from "../../assets/img/instor_mockup2.webp";
+import indra from "../../assets/img/indra.webp";
 import profilepicture from "../img/me2.webp";
 import caricon from "../../assets/icons/car-icon.svg";
 import travelicon from "../../assets/icons/travel-icon.svg";
 import hardwareicon from "../../assets/icons/hardware-icon.svg";
 import springbooticon from "../../assets/icons/springbooticon.svg";
-import expressiconwhite from "../../assets/icons/expressiconwhite.svg";
+import scotiabank from "../../assets/img/scotiabank.webp";
 import javaicon from "../../assets/icons/javaicon.svg";
 import visualscicon from "../../assets/icons/visualscicon.svg";
 import eclipseicon from "../../assets/icons/eclipseicon.svg";
-import { GoHome, GoPerson, GoMail, GoStack, GoProject } from "react-icons/go";
-import { FiGithub, FiLink, FiLinkedin, FiMail } from "react-icons/fi";
+import giticon from "../../assets/icons/giticon.svg";
+import githubicon from "../../assets/icons/githubicon.svg";
+import bitbucketicon from "../../assets/icons/bitbucketicon.svg";
+import microserviciosicon from "../../assets/icons/microserviciosicon.svg";
+import azureicon from "../../assets/icons/azureicon.svg";
+import ntt from "../../assets/img/ntt.webp";
+import cfc from "../../assets/img/cfc.webp";
+import sena from "../../assets/img/sena.webp";
+import unbosque from "../../assets/img/unbosque.webp";
+import colombo from "../../assets/img/colombo.webp";
+import gmmmc from "../../assets/img/gmmmc.webp";
+import { GoHome, GoPerson, GoMail, GoStack, GoProject,GoBook } from "react-icons/go";
+import { FiGithub, FiLink, FiLinkedin, FiMail,FiDownload } from "react-icons/fi";
 import Imprint from "../../components/Imprint";
 import Privacy from "../../components/Privacy";
 
@@ -48,8 +59,8 @@ export const headerIntroData = {
   },
   subtitle: "Junior Software Engineer",
   description: {
-    es: "Soy Santiago, Estudiante sexto semestre de Ingeniería de Sistemas, Experiencia de 1 año como Desarrollador de Software Junior!",
-    en: "I am Santiago, Sixth semester student of Systems Engineering, 1 year experience as a Junior Software Developer!",
+    es: "Soy Santiago Prieto, Estudiante de sexto semestre de Ingeniería de Sistemas en la Universidad El Bosque, tengo experiencia de un año como Desarrollador de Software en el area de medios de pago, amante de la tecnologia y la innovación...!",
+    en: "I'm Santiago Prieto, a sixth semester student of Systems Engineering at El Bosque University, I have one year of experience as a Software Developer in the area of payment methods, a lover of technology and innovation...!",
   },
   buttons: [
     {
@@ -59,6 +70,7 @@ export const headerIntroData = {
         en: "Contact me",
       },
       icon: FiMail,
+      link: "",
       color: "main-btn",
     },
     {
@@ -68,7 +80,18 @@ export const headerIntroData = {
         en: "My Projects",
       },
       icon: FiGithub,
+      link: "https://github.com/unbosquesprietogo",
       color: "secondary-btn",
+    },
+    {
+      name: "Curriculum Vitae",
+      label: {
+        es: "Descargar CV",
+        en: "Download CV",
+      },
+      icon: FiDownload,
+      link: "downloadCV",
+      color: "main-btn",
     },
   ],
   profilepicture: profilepicture,
@@ -76,25 +99,24 @@ export const headerIntroData = {
 
 export const experienceData = [
   {
-    title: "Tasty App",
+    title: "Sitel: Octubre 2021- Febrero 2022:",
+    title_EN: "Sitel: October 2021- February 2022:",
+    job:"Agente Call-Center",
+    job_EN:"Call-Center Agent",
     description:
-      "Eine Rezepte App, die wir als Team mit React und der MealDB API gebaut haben. Ich war der Front-End Entwickler und habe Features wie Voice Search oder Print to PDF programmiert. Das Design wurde mit Figma erstellt. Die Website ist responsive und mobile-optimiert.",
+      "Agente de Call-Center en Atención al Cliente para la campaña de Iberia, aerolínea de reconocimiento mundial, donde desempeñé habilidades como manejo y comuncicacion con un cliente, atención al usuario y comunicación asertiva. Aprendí a utilizar la aplicacion de Amadeus, herramienta muy utilizada en el sector del turismo y la aviación.",
     description_EN:
-      "A recipe app that we built as a team with React and the MealDB API. I was the front-end developer and programmed features like voice search or print to PDF. The design was created with Figma. The website is responsive and mobile-optimized.",
+      "Call-Center Agent in Customer Service for the Iberia campaign, a world-renowned airline, where I performed skills such as talking to customers, customer service, and assertive communication. I learned to use the Amadeus tool, a tool which is widely used in the tourism and aviation sector.",
     technologies: [
-      { name: "Html", icon: htmlicon },
-      { name: "CSS", icon: cssicon },
-      { name: "JavaScript", icon: javascripticon },
-      { name: "REST Api", icon: apiicon },
-      { name: "React", icon: reacticon },
-      { name: "Figma", icon: figmaicon },
-      { name: "Canva", icon: canvaicon },
-      { name: "Netlify", icon: netlifyicon },
-      { name: "Trello", icon: trelloicon },
+      { name: "Amadeus", icon: amadeusicon },
+      { name: "Servicio Al Cliente", icon: callcentericon },
+      { name: "Comunicacion Asertiva", icon: comunicacionicon },
+
     ],
-    image: tastyMockup,
-    deploymenturl: "https://delightful-cheesecake-9b19f0.netlify.app/",
-    githuburl: "https://github.com/AlpayC/Frontend_Abschlussprojekt_Tasty",
+    image: instorMockup,
+    image2: instorMockup2,
+    deploymenturl: "https://foundever.com/es/",
+    githuburl: "https://grupo.iberia.es/about_us",
     githubicon: FiGithub,
     deploymenticon: FiLink,
     colors: {
@@ -105,26 +127,28 @@ export const experienceData = [
     },
   },
   {
-    title: "Silentmoon",
+    title: "Indra: Agosto 2022 - Julio 2023",
+    title_EN: "Indra: August 2022 - July 2023",
+    job:"Desarrollador de Software Jr",
+    job_EN:"Junior Sofware Developer",
     description:
-      "Eine Yoga und Meditations App, die wir als Team mit React, MongoDB, Express und Node.js gebaut haben. Meine Aufgabe als Gitmaster und Backend Entwickler bestand darin, das Backend mit Anbindung anhand einer Restful API zu programmieren und die Datenbank in MongoDB zu modellieren.",
+      "Como desarrollador de software Jr en Minsait Indra, formé parte de un emocionante proyecto de medios de pago con el Banco Scotiabank Colpatria. Mi enfoque principal se encontraba en el desarrollo del front-end utilizando JSP y Java , así como también en el desarrollo del back-end mediante servicios Cobol. Además, tenia la responsabilidad de trabajar con procesos shell de Unix y manejo de Bases de datos en Oracle SQL/PLSQL.",
     description_EN:
-      "A yoga and meditation app that we built as a team with React, MongoDB, Express and Node.js. My task as a gitmaster and backend developer was to program the backend with connection using a restful API and to model the database in MongoDB.",
+      "As a Jr software developer at Minsait Indra, I was part of an exciting payment methods project with Banco Scotiabank Colpatria. My main focus was on front-end development using JSP and Java, as well as back-end development using Cobol services. Additionally, he had the responsibility of working with Unix shell processes and database management in Oracle SQL / PLSQL.",
     technologies: [
       { name: "Html", icon: htmlicon },
       { name: "CSS", icon: cssicon },
       { name: "JavaScript", icon: javascripticon },
-      { name: "Spotify Api", icon: spotifyicon },
-      { name: "React", icon: reacticon },
-      { name: "JWT & Bcrypt", icon: jwticon },
-      { name: "Axios", icon: axiosicon },
-      { name: "MongoDB", icon: mongodbicon },
-      { name: "Express", icon: expressiconwhite },
-      { name: "Node.js", icon: nodejsicon },
-      { name: "Figma", icon: figmaicon },
-      { name: "Render", icon: rendericon },
+      { name: "JSP", icon: jspicon },
+      { name: "COBOL", icon: cobolicon },
+      { name: "Java", icon: javaicon },
+      { name: "Unix", icon: unixicon },
+      { name: "Shell", icon: shellicon },
+      { name: "Oracle", icon: oracleicon},
+      { name: "SVN", icon: svnicon },
     ],
-    image: silentmoonMockup,
+    image: indra,
+    image2: scotiabank,
     deploymenturl: "https://silentmoon-grpw.onrender.com/",
     githuburl:
       "https://github.com/AlpayC/Fullstack_Abschlussprojekt_SilentMoon",
@@ -138,26 +162,28 @@ export const experienceData = [
     },
   },
   {
-    title: "Sitel 2021-2022",
+    title: "NTT Data: Octubre de 2023 - Actualmente",
+    title_EN: "NTT Data: October de 2023 - Now",
+    job:"Junior Software Engineer",
+    job_EN:"Junior Software Engineer",
     description:
-      "Call-Center Agent in Customer Service for the Iberia campaign, a world-renowned airline, where I performed skills such as talking to customers, customer service, and assertive communication. I learned to use the Amadeus tool, a tool which is widely used in the tourism and aviation sector.",
+      "Ingeniero de Software Junior en NTT Data, una de las mejores empresas a nivel mundial en servicios TI para el proyecto de App - Web de Crédito Fácil Codensa (CFC) en el area del back-end desarrollando microservicios con el framework de SpringBoot. Experiencia en Bases de datos como SQL Server y Oracle SQL.  Manejo de Git y Bitbucket como herramientas de control de versiones y repositorios. Tengo la responsabilidad de construir y desplegar aplicaciones en Azure y manejo de aplicaciones de Azure (como Azure SQL o Redis Cache) para el ambiente de desarrollo u pruebas.",
     description_EN:
-      "Call-Center Agent in Customer Service for the Iberia campaign, a world-renowned airline, where I performed skills such as talking to customers, customer service, and assertive communication. I learned to use the Amadeus tool, a tool which is widely used in the tourism and aviation sector.",
+      "Junior Software Engineer at NTT Data, one of the best companies in the world in IT services. for the Codensa Easy Credit App - Web (CFC) project in the back-end area developing microservices with the SpringBoot framework. Experience in Databases such as SQL Server and Oracle SQL. Management of Git and Bitbucket as version control and repositories tools. I have the responsibility of building and deploying applications in Azure and managing Azure applications (such as Azure SQL or Redis Cache) for the development or testing environment.",
     technologies: [
-      { name: "Html", icon: htmlicon },
-      { name: "CSS", icon: cssicon },
-      { name: "JavaScript", icon: javascripticon },
-      { name: "React", icon: reacticon },
-      { name: "JWT & Bcrypt", icon: jwticon },
-      { name: "Axios", icon: axiosicon },
-      { name: "MongoDB", icon: mongodbicon },
-      { name: "Express", icon: expressiconwhite },
-      { name: "Node.js", icon: nodejsicon },
-      { name: "Figma", icon: figmaicon },
-      { name: "Render", icon: rendericon },
-      { name: "Trello", icon: trelloicon },
+      { name: "SpringBoot", icon: springbooticon },
+      { name: "Java", icon: javaicon },
+      { name: "Micro-Servicios", icon: microserviciosicon },
+      { name: "Azure", icon: azureicon },
+      { name: "JWT & OAuht2", icon: jwticon },
+      { name: "Oracle", icon: oracleicon},
+      { name: "SQL Server", icon: sqlservericon },
+      { name: "Git", icon: giticon},
+      { name: "Bitbucket", icon: bitbucketicon },
+
     ],
-    image: instorMockup,
+    image: ntt,
+    image2: cfc,
     deploymenturl: "https://mern-haushaltsbuch.onrender.com/",
     githuburl: "https://github.com/AlpayC/Furniture_MERN",
     githubicon: FiGithub,
@@ -173,7 +199,7 @@ export const experienceData = [
 
 export const liveTickerData = {
   content: {
-    de: "Mas proyectos en GitHub",
+    es: "Mas proyectos en GitHub",
     en: "More Projects on Github",
   },
 } as const;
@@ -218,24 +244,7 @@ export const skillsDataWeb = [
         icon: nodejsicon,
         color: "#339933",
       },
-      {
-        title: "MongoDB",
-        hash: "#MongoDB",
-        icon: mongodbicon,
-        color: "#449C45",
-      },
-      {
-        title: "JQuery",
-        hash: "#JQuery",
-        icon: jqueryicon,
-        color: "#007ACC",
-      },
-      {
-        title: "Visual Studio Code",
-        hash: "#VSC",
-        icon: visualscicon,
-        color: "#007ACC",
-      },
+
     ],
   },
 ] as const;
@@ -256,6 +265,76 @@ export const skillsDataDesign = [
   },
 ] as const;
 
+export const skillsDataIDE = [
+  {
+    
+    skillsTitle: "IDE'S",
+    skills: [
+      {
+        title: "Visual Studio Code",
+        hash: "#VSC",
+        icon: visualscicon,
+        color: "#2DA2F1",
+      },
+      { title: "IntelliJ", 
+      hash: "#IntelliJ", 
+      icon: intellijicon, 
+      color: "#107CF2" 
+    },
+    { title: "Eclipse", 
+      hash: "#Eclipse", 
+      icon: eclipseicon, 
+      color: "#F4AC57" 
+    },
+    ],
+  },
+] as const;
+
+export const skillsDataRepositories = [
+  {
+    skillsTitle: "Repositories",
+    skills: [
+      { title: "Git",
+        hash: "#Git",
+        icon: giticon,
+        color: "#EE513B" },
+      {
+        title: "GitHub",
+        hash: "#GitHub",
+        icon: githubicon,
+        color: "#3E75C3",
+      },
+      { title: "Bitbucket",
+        hash: "#Bitbucket",
+        icon: bitbucketicon,
+        color: "#1B76F1" },
+    ],
+  },
+] as const;
+
+export const skillsDataBD = [
+  {
+    skillsTitle: "Databases",
+    skills: [
+    { title: "Oracle PL-SQL/SQL", 
+      hash: "#Oracle PL-SQL/SQL", 
+      icon: oracleicon, 
+      color: "#EA2128" 
+    },
+    { title: "PostgreSQL", 
+      hash: "#PostgreSQL", 
+      icon: postgresqlicon, 
+      color: "#336791" 
+    },
+    { title: "MySQL", 
+      hash: "#MySQL", 
+      icon: mysqlicon, 
+      color: "#01628A" 
+    },
+    ],
+  },
+] as const;
+
 export const skillsDataBackend = [
   {
     skillsTitle: "Back-End",
@@ -268,56 +347,32 @@ export const skillsDataBackend = [
         title: "SpringBoot",
         hash: "#SpringBoot",
         icon: springbooticon,
-        color: "#FEAA2B",
+        color: "#34A853",
       },
       {
         title: "Python",
         hash: "#Python",
         icon: pythonicon,
-        color: "#FEAA2B",
+        color: "#35668F",
       },
       {
         title: "php",
         hash: "#php",
         icon: phpicon,
-        color: "#FEAA2B",
+        color: "#6181B6",
         
       },
       { title: "COBOL", 
         hash: "#COBOL", 
         icon: cobolicon, 
-        color: "#00C4CC" 
+        color: "#005CA5" 
       },
       { title: "Oracle Apex", 
         hash: "#Oracle Apex", 
         icon: oracleapexicon, 
-        color: "#00C4CC" 
+        color: "#EE7B6E" 
       },
-      { title: "Oracle PL-SQL/SQL", 
-        hash: "#Oracle PL-SQL/SQL", 
-        icon: oracleicon, 
-        color: "#00C4CC" 
-      },
-      { title: "PostgreSQL", 
-        hash: "#PostgreSQL", 
-        icon: postgresqlicon, 
-        color: "#00C4CC" 
-      },
-      { title: "MySQL", 
-        hash: "#MySQL", 
-        icon: mysqlicon, 
-        color: "#00C4CC" 
-      },
-      { title: "IntelliJ", 
-        hash: "#IntelliJ", 
-        icon: intellijicon, 
-        color: "#00C4CC" 
-      },
-      { title: "Eclipse", 
-        hash: "#Eclipse", 
-        icon: eclipseicon, 
-        color: "#00C4CC" 
-      },
+    
     ],
   },
 ] as const;
@@ -327,12 +382,13 @@ export const navLinks = [
   { es: "Inicio", en: "Home", hash: "#home", icon: GoHome },
   { es: "Habilidades", en: "Skills", hash: "#skills", icon: GoStack },
   { es: "Experiencia", en: "Experience", hash: "#experience", icon: GoProject },
+  { es: "Estudios", en: "Studies", hash: "#studies", icon: GoBook },
   { es: "Sobre mi", en: "About me", hash: "#about-me", icon: GoPerson },
   { es: "Contacto", en: "Contact", hash: "#contact", icon: GoMail },
 ] as const;
 
 export const FooterLinks = [
-  { es: "Imprint", en: "Imprint", hash: "#imprint", data: <Imprint /> },
+  { es: "Imprimir", en: "Imprint", hash: "#imprint", data: <Imprint /> },
   { es: "Privacidad", en: "Privacy", hash: "#privacy", data: <Privacy /> },
 ] as const;
 
@@ -392,7 +448,7 @@ export const aboutMeData = {
     {
       title: "Disponible para viajar...",
       description:
-        "Mi flexibilidad y disposición para desplazarme a diferentes ubicaciones son una extensión natural de mi compromiso con el éxito de los proyectos y la colaboración efectiva. Estoy emocionado ante la perspectiva de contribuir a equipos dinámicos en cualquier parte del mundo y estoy seguro de que mi pasión por los viajes se traducirá en un aporte valioso para el logro de los objetivos de la empresa.",
+        "Mi flexibilidad y disposición para desplazarme a diferentes ubicaciones son una extensión natural de mi compromiso con el éxito de los proyectos y la colaboración efectiva. ",
       icon: travelicon,
     },
   ],
@@ -412,8 +468,75 @@ export const aboutMeData = {
     {
       title: "Available to travel...",
       description:
-        "My flexibility and willingness to move to different locations are a natural extension of my commitment to project success and effective collaboration. I am excited at the prospect of contributing to dynamic teams anywhere in the world and am confident that my passion for travel will translate into a valuable contribution to achieving company objectives.",
+        "My flexibility and willingness to move to different locations are a natural extension of my commitment to project success and effective collaboration.",
       icon: travelicon,
+    },
+  ],
+};
+
+export const studies = {
+  title: "Estudios",
+  title_EN: "Studies",
+  description: "Cada logro comienza con la decisión de intentarlo",
+  description_EN: "Every achievement begins with the decision to try",
+  paragraphs_ES: [
+    {
+      title: "GMMMC - 2015-2020",
+      description:
+        "Bachillerato, Educación Básica, Bogotá D.C.",
+      icon: hardwareicon,
+      image: gmmmc,
+    },
+    {
+      title: "SENA - 2020",
+      description:
+        "Curso - Manejo de Herramientas Excel, Bogotá D.C.",
+      icon: hardwareicon,
+      image: sena,
+    },
+    {
+      title: "Centro Colombo Americano - 2018-2020",
+      description:
+        "Curso de Ingles, Lenguaje (B1), Bogotá D.C.",
+      icon: hardwareicon,
+      image: colombo,
+    },
+    {
+      title: "Universidad El Bosque 2021-Actualmente",
+      description:
+        "Ingeniería de Sistemas, Facultad de Ingeniería. ",
+      icon: hardwareicon,
+      image: unbosque,
+    },
+  ],
+  paragraphs_EN: [
+    {
+      title: "GMMMC - 2015-2020",
+      description:
+        " High School, Basic education, Bogota D.C.",
+        icon: hardwareicon,
+        image: gmmmc,
+    },
+    {
+      title: "SENA - 2020",
+      description:
+        "Course - Use of Excel Tools, Bogotá D.C.",
+        icon: hardwareicon,
+        image: sena,
+    },
+    {
+      title: "Centro Colombo Americano - 2018-2020",
+      description:
+        "English Course, Language (B1), Bogota D.C.",
+        icon: hardwareicon,
+        image: colombo,
+    },
+    {
+      title: "Universidad El Bosque 2021-Now",
+      description:
+        "Systems Engineering, Faculty of Engineering, Bogota D.C.",
+        icon: hardwareicon,
+        image: unbosque,
     },
   ],
 };

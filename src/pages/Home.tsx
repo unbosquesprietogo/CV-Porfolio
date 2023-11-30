@@ -12,6 +12,7 @@ const LazySiteBarRight = lazy(() => import("../components/SideBarRight"));
 const LazySiteBarLeft = lazy(() => import("../components/SiteBarLeft"));
 const LazyTechStack = lazy(() => import("../components/TechStack"));
 const LazyAboutMe = lazy(() => import("../components/AboutMe"));
+const LazyStudies = lazy(() => import("../components/Studies"));
 const LazyContact = lazy(() => import("../components/Contact"));
 const LazyHeaderIntro = lazy(() => import("../components/HeaderIntro"));
 const LazyRadialGradient = lazy(() => import("../components/RadialGradient"));
@@ -86,11 +87,19 @@ const Home: React.FC = () => {
                 height="middle"
                 dividerStyle="solid"
               />
-
-              <LazyAboutMe />
+              <LazyStudies />
+              
               <Divider
                 thickness="0.25rem"
                 direction="inner-left-to-middle"
+                color="lightblue"
+                height="middle"
+                dividerStyle="solid"
+              />
+              <LazyAboutMe />
+              <Divider
+                thickness="0.25rem"
+                direction="middle-to-inner-left"
                 color="lightblue"
                 height="middle"
                 dividerStyle="solid"

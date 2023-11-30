@@ -1,11 +1,10 @@
 import bannerBg from "../assets/img/bannerbg.webp";
 import React, { useRef } from "react";
-import Button from "./Button";
 import LiveTicker from "./ParallaxText";
-import { experienceData, toastMessages} from "../assets/lib/data";
+import { experienceData} from "../assets/lib/data";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCards, Pagination } from "swiper/modules";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer} from "react-toastify";
 import { Tooltip as ReactTooltip } from "react-tooltip";
 import { useSectionInView } from "../assets/lib/hooks";
 import { useLanguage } from "../context/language-context";
@@ -25,13 +24,7 @@ const experiencelider: React.FC = () => {
   });
   const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
-  const notifyServerRequest = () => {
-    if (language === "ES") {
-      toast.info(toastMessages.loadingExperience.es);
-    } else {
-      toast.info(toastMessages.loadingExperience.en);
-    }
-  };
+
 
   return (
     <React.Fragment>
@@ -84,7 +77,7 @@ const experiencelider: React.FC = () => {
               effect={"cards"}
               grabCursor={true}
               modules={[EffectCards, Autoplay, Pagination]}
-              className=" w-[60vw] max-lg:hidden min-[1921px]:px-96"
+              className=" w-[70vw] max-lg:hidden min-[1921px]:px-96"
               loop={true}
               autoplay={{
                 delay: 4000,
@@ -100,9 +93,13 @@ const experiencelider: React.FC = () => {
                   key={index}
                   className="quote-outer-container bg-[--darkblue] text-[--white] flex flex-row justify-between  rounded-2xl p-20 text-left max-lg:hidden "
                 >
-                  <div className=" w-[55%] flex flex-col gap-12 justify-between ">
-                    <h2>{experience.title}</h2>
-
+                  <div className=" w-[75%] flex flex-col gap-12 justify-between ">
+                    <h2>{language === "ES"
+                        ?experience.title
+                        :experience.title_EN}</h2>
+                  <h3>{language === "ES"
+                        ?experience.job
+                        :experience.job_EN}</h3>
                     <p className="text-white">
                       {language === "ES"
                         ? experience.description
@@ -110,50 +107,60 @@ const experiencelider: React.FC = () => {
                     </p>
                     <div className="technologies">
                       <h3>
-                        {language === "ES" ? "Technologien" : "Technologies"}
+                        {language === "ES" ? "Habilidades" : "Skills"}
                       </h3>
-                      <div className="grid grid-cols-6 gap-10 p-4">
+                      <div className="grid grid-cols-5 gap-10 p-4">
                         {experience.technologies.map(
                           (technology, innerIndex: number) => (
+                          <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
                             <img
                               key={innerIndex}
                               src={technology.icon}
-                              alt={`${experience.title}-icon`}
-                              className="h-[5rem] w-[60%] "
+                              alt={`${language === "ES"
+                              ?experience.title
+                              :experience.title_EN}-icon`}
+                              className="h-[5rem] "
                               data-tooltip-id="my-tooltip"
                               data-tooltip-content={technology.name}
                             />
+                            <p className="text-white ">
+                            {technology.name}
+                            </p>
+                          </div>  
                           )
                         )}
                       </div>
                     </div>
-                    <div className="buttons flex gap-10">
-                      <Button
-                        label="Live Demo"
-                        link={experience.deploymenturl}
-                        iconSVG={experience.deploymenticon}
-                        buttoncolor={experience.colors.main}
-                        iconcolor={experience.colors.icon}
-                        onClick={notifyServerRequest}
+
+                  </div>
+                  
+                  <div style={{flexDirection:"column"}} className="image-container flex flex-column justify-center items-center">
+                    <div style={{ width: "25vh", height: "25vh", overflow: "hidden" }}>
+                      <motion.img
+                        src={experience.image}
+                        alt="Logo 1"
+                        className="logo"
+                        whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+                        initial={{ scale: 1, boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}
+                        style={{ width: "100%",  borderRadius: "10px", objectFit: "cover", objectPosition: "center center" }}
                       />
-                      <Button
-                        label="Github Repository"
-                        link={experience.githuburl}
-                        iconSVG={experience.githubicon}
-                        buttoncolor={experience.colors.main}
-                        iconcolor={experience.colors.icon}
+                    </div>
+
+                    <br />
+
+                    <div style={{ width: "25vh", height: "25vh", overflow: "hidden" }}>
+                      <motion.img
+                        src={experience.image2}
+                        alt="Logo 2"
+                        className="logo"
+                        whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+                        initial={{ scale: 1, boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}
+                        style={{ width: "100%",  borderRadius: "10px", objectFit: "cover", objectPosition: "center center" }}
                       />
                     </div>
                   </div>
-
-                  <div className="right-content relative h-[40rem] overflow-hidden rounded-xl w-[40%] transition-all duration-200 shadow-2xl">
-                    <img
-                      src={experience.image}
-                      alt={`${experience.title}-project-mockup`}
-                      className={`w-full h-auto transition-all duration-[6000ms] transform opacity-100 hover:translate-y-[-50%] 
-                      `}
-                    />
-                  </div>
+                   
+                  
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -162,49 +169,66 @@ const experiencelider: React.FC = () => {
                 key={index}
                 className="bg-darkblue flex flex-col gap-10 w-[80%] h-full  border-lightblue border-[0.4rem] p-8 rounded-xl mb-10 min-[1024px]:hidden max-lg:w-[90%]"
               >
-                <h2 className="text-white">{experience.title}</h2>
-                <img
-                  src={experience.image}
-                  alt={experience.image}
-                  className="h-[35vh] w-full object-cover object-top rounded-3xl"
-                />
-                <div className="buttons flex gap-10 max-lg:flex-col">
-                  <Button
-                    label="Live Demo"
-                    link={experience.deploymenturl}
-                    iconSVG={experience.deploymenticon}
-                    buttoncolor={experience.colors.main}
-                    iconcolor={experience.colors.icon}
-                  />
-                  <Button
-                    label="Github Repository"
-                    link={experience.githuburl}
-                    iconSVG={experience.githubicon}
-                    buttoncolor={experience.colors.main}
-                    iconcolor={experience.colors.icon}
-                  />
-                </div>
+                <h2 className="text-white gap-30">{language === "ES"
+                        ?experience.title
+                        :experience.title_EN}</h2>
+                 <div style={{flexDirection:"row", justifyContent:"space-between"}} className="image-container flex flex-column justify-center items-center">
+                    <div style={{ width: "15vh", height: "15vh", overflow: "hidden" }}>
+                      <motion.img
+                        src={experience.image}
+                        alt="Logo 1"
+                        className="logo"
+                        whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+                        initial={{ scale: 1, boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}
+                        style={{ width: "100%",  borderRadius: "10px", objectFit: "cover", objectPosition: "center center" }}
+                      />
+                    </div>
+
+
+                    <div style={{ width: "15vh", height: "15vh", overflow: "hidden" }}>
+                      <motion.img
+                        src={experience.image2}
+                        alt="Logo 2"
+                        className="logo"
+                        whileHover={{ scale: 1.1, boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)" }}
+                        initial={{ scale: 1, boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }}
+                        style={{ width: "100%",  borderRadius: "10px", objectFit: "cover", objectPosition: "center center" }}
+                      />
+                    </div>
+                  </div>
+                  <h2 className="text-white gap-30">{language === "ES"
+                        ?experience.job
+                        :experience.job_EN}</h2>
+                  
                 <p className="text-white  max-lg:text-4xl">
                   {language === "ES"
                     ? experience.description
                     : experience.description_EN}
                 </p>
-
+                
                 <div className="technologies">
                   <h3 className="text-white">
-                    {language === "ES" ? "Technologien" : "Technologies"}
+                    {language === "ES" ? "Habilidades" : "Skills"}
                   </h3>
                   <div className="grid grid-cols-3 gap-10 p-4">
                     {experience.technologies.map(
                       (technology, innerIndex: number) => (
+                      <div style={{display:"flex", flexDirection:"column", textAlign:"center"}}>
                         <img
                           key={innerIndex}
                           src={technology.icon}
-                          alt={`${experience.title}-icon`}
-                          className="h-[5rem] w-[60%] "
+                          alt={`${language === "ES"
+                          ?experience.title
+                          :experience.title_EN}-icon`}
+                          className="h-[5rem]"
                           data-tooltip-id="my-tooltip"
                           data-tooltip-content={technology.name}
+                          style={{marginBottom:"9px"}}
                         />
+                        <h3 className="text-white max-lg:text-[1.3rem] ">
+                         {technology.name}
+                        </h3>
+                      </div>
                       )
                     )}
                   </div>
